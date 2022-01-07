@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="no">
+<div class="container">
+
+    <main>
+
+
+            <fieldset>
+
+                <div class="question" id="recommendation-label">
+                    <div>Spiser du frokost?</div>
+                    <div class="radios" role="group" aria-labelledby="recommendation-label">
+                        <label ><input type="radio" name="frokost" id="frokost1" value="ja" checked/>Ja</label>
+
+                        <label ><input type="radio" name="frokost" id="frokost3" value="nei"/>Nei</label>
+                    </div>
+                    <div>Liker du skolen?</div>
+                    <div class="radios" role="group" aria-labelledby="recommendation-label">
+                        <label ><input type="radio" name="skole" id="skole1" value="ja" checked/>Ja</label>
+
+                        <label ><input type="radio" name="skole" id="skole3" value="nei"/>Nei</label>
+                    </div>
+                    <div>Hallo?</div>
+                    <div class="radios" role="group" aria-labelledby="recommendation-label">
+                        <label ><input type="radio" name="hilse" id="hilse1" value="ja" checked/>Hallo?</label>
+
+                        <label ><input type="radio" name="hilse" id="hilse3" value="nei"/>Hello</label>
+                    </div>
+                    <div>Sola er kald</div>
+                    <div class="radios" role="group" aria-labelledby="recommendation-label">
+                        <label ><input type="radio" name="sola" id="sola1" value="ja" checked/>Ja</label>
+
+                        <label ><input type="radio" name="sola" id="sola3" value="nei"/>Nei</label>
+                    </div>
+
+
+
+                </div>
+
+<body>
+<div>
+<div id="resSp1">
+<h3>Frokost</h3>
+</div>
+<div id="Sp1bar"></div>
+
+
+<div id="resSp2">
+    <h3>Skole</h3>
+</div>
+<div id="Sp2bar"></div>
+
+<div id="resSp3">
+    <h3>Hilsen</h3>
+</div>
+<div id="Sp3bar"></div>
+
+<div id="resSp4">
+    <h3>Kaldt sol</h3>
+</div>
+<div id="Sp4bar"></div>
+
+
+</div>
+</body>
+
+
+            </fieldset>
+        <button id="svar" type="button">Svar</button>
+       <button id="resultat" type="button">Resultat</button>
+        </form>
+    </main>
+    <script>
+        let frokost1 = 0;
+        let skole1 = 0;
+        let hilse1 = 0;
+        let sola1 = 0;
+        let frokost1E = document.querySelector('#frokost1');
+        let skole1E = document.querySelector('#skole1');
+        let hilse1E = document.querySelector('#hilse1');
+        let sola1E = document.querySelector('#sola1');
+        let SvarE = document.querySelector('#svar');
+        let antallSvar = 0;
+        let resultatE = document.querySelector('#resultat')
+
+        SvarE.onclick = function () {
+            antallSvar++;
+            console.log("antall svar: " + antallSvar);
+            if(frokost1E.checked) {
+                frokost1++;
+                console.log(frokost1);
+            } if(skole1E.checked) {
+                skole1++;
+                console.log(skole1);
+            } if(hilse1E.checked) {
+                hilse1++;
+                console.log(hilse1);
+            } if(sola1E.checked) {
+                sola1++;
+                console.log(sola1);
+            }
+        }
+
+        resultatE.onclick = function () {
+            document.getElementById("Sp1bar").style.width = frokost1/antallSvar*100+"%";
+            document.getElementById("Sp2bar").style.width = skole1/antallSvar*100+"%";
+            document.getElementById("Sp3bar").style.width = hilse1/antallSvar*100+"%";
+            document.getElementById("Sp4bar").style.width = sola1/antallSvar*100+"%";
+        }
+
+        document.getElementById("Sp1bar").style.backgroundColor = "red";
+        document.getElementById("Sp1bar").style.width = 0 + "%";
+        document.getElementById("Sp2bar").style.backgroundColor = "blue";
+        document.getElementById("Sp2bar").style.width = 0 + "%";
+        document.getElementById("Sp3bar").style.backgroundColor = "orange";
+        document.getElementById("Sp3bar").style.width = 0 + "%";
+        document.getElementById("Sp4bar").style.backgroundColor = "green";
+        document.getElementById("Sp4bar").style.width = 0 + "%";
+
+    </script>
+
+</div>
+
+</html>
